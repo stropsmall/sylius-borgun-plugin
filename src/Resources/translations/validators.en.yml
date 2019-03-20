@@ -1,0 +1,7 @@
+strops:
+  borgun_plugin:
+    gateway_configuration:
+      pos_id:
+        not_blank: The payment ID has not been provided.
+      signature_key:
+        not_blank: The OAuthClientSecret code has not been sprovided.

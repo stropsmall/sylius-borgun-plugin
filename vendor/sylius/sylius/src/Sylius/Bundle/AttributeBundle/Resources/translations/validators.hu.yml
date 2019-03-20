@@ -1,0 +1,10 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius:
+    attribute:
+        name:
+            not_blank: Kérjük, írja be az attribútum nevét.
+        code:
+            not_blank: Kérjük, írja be az attribútum kódját.
+            unique: Ez a kód már használatban van.

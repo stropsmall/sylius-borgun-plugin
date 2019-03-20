@@ -1,0 +1,9 @@
+/vendor/
+/bin/
+
+/composer.phar
+/composer.lock
+
+/test/var/cache
+/test/var/log
+/test/app/db.sql

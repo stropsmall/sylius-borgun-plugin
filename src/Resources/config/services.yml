@@ -1,0 +1,30 @@
+services:
+  strops.borgun_plugin.form.type.gateway_configuration:
+    class: Strops\SyliusBorgunPlugin\Form\Type\PayUGatewayConfigurationType
+    tags:
+      - { name: sylius.gateway_configuration_type, type: payu, label: strops.payu_plugin.gateway_label }
+      - { name: form.type }
+
+  strops.payu_plugin.gateway_factory:
+    class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
+    arguments: [Strops\SyliusBorgunPlugin\PayUGatewayFactory]
+    tags:
+      - { name: payum.gateway_factory_builder, factory: payu }
+
+  strops.payu_plugin.bridge.open_payu:
+    class: Strops\SyliusBorgunPlugin\Bridge\OpenPayUBridge
+
+  strops.payu_plugin.payu_action:
+    class: Strops\SyliusBorgunPlugin\Action\PayUAction
+    public: true
+    arguments: ['@strops.payu_plugin.bridge.open_payu', '@payum']
+    tags:
+      - { name: payum.action, factory: payu, alias: payum.action.set_payu }
+
+  strops.payu_plugin.notify_action:
+    class: Strops\SyliusBorgunPlugin\Action\NotifyAction
+    public: true
+    arguments:
+      - '@strops.payu_plugin.bridge.open_payu'
+    tags:
+      - { name: payum.action, factory: payu, alias: payum.action.notify }

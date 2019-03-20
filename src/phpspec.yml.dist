@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Strops\SyliusBorgunPlugin
+        psr4_prefix: Strops\SyliusBorgunPlugin

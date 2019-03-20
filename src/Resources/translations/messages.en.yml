@@ -1,0 +1,8 @@
+strops:
+  borgun_plugin:
+    environment: Environment
+    secure: Production
+    sandbox: Test
+    signature_key: Second configuration key
+    pos_id: Payment point identifier
+    gateway_label: Borgun
