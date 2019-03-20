@@ -1,5 +1,0 @@
-services:
-	-
-		class: PHPStan\Type\WebMozartAssert\AssertTypeSpecifyingExtension
-		tags:
-			- phpstan.typeSpecifier.staticMethodTypeSpecifyingExtension

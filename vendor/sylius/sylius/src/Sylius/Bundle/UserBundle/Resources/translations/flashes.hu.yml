@@ -1,8 +1,0 @@
-# This file is part of the Sylius package.
-# (c) Paweł Jędrzejewski
-
-sylius:
-    user:
-        change_password: 'Jelszavát sikeresen megváltoztattuk!'
-        reset_password: 'Jelszava sikeresen visszaállítva!'
-        verify_email_by_invalid_token: 'Ez ellenőrzőkód hibás.'
