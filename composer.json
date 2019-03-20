@@ -1,5 +1,5 @@
 {
-    "name": "stops/sylius-borgun-plugin",
+    "name": "strops/sylius-borgun-plugin",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin", "borgun-payment"],
     "description": "Borgun payment gateway for Sylius",
