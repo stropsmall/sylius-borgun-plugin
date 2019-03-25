@@ -20,9 +20,9 @@ use Sylius\Component\Core\Model\CustomerInterface;
  */
 final class BorgunActionSpec extends ObjectBehavior
 {
-    function let(OpenBorgunBridgeInterface $openPayUBridge, Payum $payum)
+    function let(OpenBorgunBridgeInterface $openBorgunBridge, Payum $payum)
     {
-        $this->beConstructedWith($openPayUBridge, $payum);
+        $this->beConstructedWith($openBorgunBridge, $payum);
         $this->setApi(['environment' => 'secure', 'signature_key' => '123', 'pos_id' => '123']);
     }
     function it_is_initializable()
@@ -34,8 +34,8 @@ final class BorgunActionSpec extends ObjectBehavior
         TokenInterface $token,
         CustomerInterface $customer,
         ArrayObject $model,
-        OpenBorgunBridgeInterface $openPayUBridge,
-        \OpenBorgun_Result $openPayUResult,
+        OpenBorgunBridgeInterface $openBorgunBridge,
+        \OpenBorgun_Result $openBorgunResult,
         Payum $payum,
         GenericTokenFactoryInterface $tokenFactory
     )
@@ -51,8 +51,8 @@ final class BorgunActionSpec extends ObjectBehavior
         $model->offsetGet('locale')->willReturn(null);
         $payum->getTokenFactory()->willReturn($tokenFactory);
         $tokenFactory->createNotifyToken(Argument::any(), Argument::any())->willReturn($token);
-        $openPayUResult->getResponse()->willReturn((object)['status' => (object)['statusCode' => OpenBorgunBridgeInterface::SUCCESS_API_STATUS], 'orderId' => 1, 'redirectUri' => '/']);
-        $openPayUBridge->setAuthorizationDataApi('secure', '123', '123')->shouldBeCalled();
+        $openBorgunResult->getResponse()->willReturn((object)['status' => (object)['statusCode' => OpenBorgunBridgeInterface::SUCCESS_API_STATUS], 'orderId' => 1, 'redirectUri' => '/']);
+        $openBorgunBridge->setAuthorizationDataApi('secure', '123', '123')->shouldBeCalled();
         $dataApi = [
             'continueUrl' => null,
             'notifyUrl' => null,
@@ -76,7 +76,7 @@ final class BorgunActionSpec extends ObjectBehavior
                 ]
             ]
         ];
-        $openPayUBridge->create($dataApi)->willReturn($openPayUResult);
+        $openBorgunBridge->create($dataApi)->willReturn($openBorgunResult);
         $request->getModel()->willReturn($model);
         $request->getToken()->willReturn($token);
         $request->getFirstModel()->willReturn($customer);

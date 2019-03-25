@@ -16,9 +16,9 @@ use PhpSpec\ObjectBehavior;
  */
 final class NotifyActionSpec extends ObjectBehavior
 {
-    function let(OpenBorgunBridgeInterface $openPayUBridge)
+    function let(OpenBorgunBridgeInterface $openBorgunBridge)
     {
-        $this->beConstructedWith($openPayUBridge);
+        $this->beConstructedWith($openBorgunBridge);
     }
     function it_is_initializable()
     {
@@ -28,18 +28,18 @@ final class NotifyActionSpec extends ObjectBehavior
         Notify $request,
         TokenInterface $token,
         ArrayObject $model,
-        SetBorgun $setPayU,
+        SetBorgun $setBorgun,
         GetHumanStatus $status,
         GatewayInterface $gateway
     )
     {
         $request->getToken()->willReturn($token);
         $request->getModel()->willReturn($model);
-        $setPayU->getToken()->willReturn($token);
-        $setPayU->getModel()->willReturn($model);
+        $setBorgun->getToken()->willReturn($token);
+        $setBorgun->getModel()->willReturn($model);
         $this->setGateway($gateway);
         $this->getGateway()->execute($status);
-        $this->getGateway()->execute($setPayU);
+        $this->getGateway()->execute($setBorgun);
     }
     function it_throws_exception_when_model_is_not_array_object(Notify $request)
     {

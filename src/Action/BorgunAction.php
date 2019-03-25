@@ -190,7 +190,7 @@ final class BorgunAction implements ApiAwareInterface, ActionInterface
     /**
      * @param OpenBorgunBridgeInterface $openBorgunBridge
      */
-    public function setOpenPayUBridge($openBorgunBridge)
+    public function setOpenBorgunBridge($openBorgunBridge)
     {
         $this->openBorgunBridge = $openBorgunBridge;
     }

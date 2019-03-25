@@ -1,30 +1,30 @@
 services:
   strops.borgun_plugin.form.type.gateway_configuration:
-    class: Strops\SyliusBorgunPlugin\Form\Type\PayUGatewayConfigurationType
+    class: Strops\SyliusBorgunPlugin\Form\Type\BorgunGatewayConfigurationType
     tags:
-      - { name: sylius.gateway_configuration_type, type: payu, label: strops.payu_plugin.gateway_label }
+      - { name: sylius.gateway_configuration_type, type: borgun, label: strops.borgun_plugin.gateway_label }
       - { name: form.type }
 
-  strops.payu_plugin.gateway_factory:
+  strops.borgun_plugin.gateway_factory:
     class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
     arguments: [Strops\SyliusBorgunPlugin\BorgunGatewayFactory]
     tags:
-      - { name: payum.gateway_factory_builder, factory: payu }
+      - { name: payum.gateway_factory_builder, factory: borgun }
 
-  strops.payu_plugin.bridge.open_payu:
-    class: Strops\SyliusBorgunPlugin\Bridge\OpenPayUBridge
+  strops.borgun_plugin.bridge.open_borgun:
+    class: Strops\SyliusBorgunPlugin\Bridge\OpenBorgunBridge
 
-  strops.payu_plugin.payu_action:
-    class: Strops\SyliusBorgunPlugin\Action\PayUAction
+  strops.borgun_plugin.borgun_action:
+    class: Strops\SyliusBorgunPlugin\Action\BorgunAction
     public: true
-    arguments: ['@strops.payu_plugin.bridge.open_payu', '@payum']
+    arguments: ['@strops.borgun_plugin.bridge.open_borgun', '@payum']
     tags:
-      - { name: payum.action, factory: payu, alias: payum.action.set_payu }
+      - { name: payum.action, factory: borgun, alias: payum.action.set_borgun }
 
-  strops.payu_plugin.notify_action:
+  strops.borgun_plugin.notify_action:
     class: Strops\SyliusBorgunPlugin\Action\NotifyAction
     public: true
     arguments:
-      - '@strops.payu_plugin.bridge.open_payu'
+      - '@strops.borgun_plugin.bridge.open_borgun'
     tags:
-      - { name: payum.action, factory: payu, alias: payum.action.notify }
+      - { name: payum.action, factory: borgun, alias: payum.action.notify }

@@ -14,7 +14,6 @@ use Payum\Core\Request\Notify;
 use Webmozart\Assert\Assert;
 
 
-
 final class NotifyAction implements ActionInterface, ApiAwareInterface
 {
     use GatewayAwareTrait;

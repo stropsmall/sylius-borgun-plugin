@@ -8,11 +8,11 @@
 
 namespace Strops\SyliusBorgunPlugin;
 
-use BitBag\SyliusBorgunPlugin\Action\CaptureAction;
-use BitBag\SyliusBorgunPlugin\Action\ConvertPaymentAction;
-use BitBag\SyliusBorgunPlugin\Action\NotifyAction;
-use BitBag\SyliusBorgunPlugin\Action\StatusAction;
-use BitBag\SyliusBorgunPlugin\Bridge\OpenPayUBridge;
+use Strops\SyliusBorgunPlugin\Action\CaptureAction;
+use Strops\SyliusBorgunPlugin\Action\ConvertPaymentAction;
+use Strops\SyliusBorgunPlugin\Action\NotifyAction;
+use Strops\SyliusBorgunPlugin\Action\StatusAction;
+use Strops\SyliusBorgunPlugin\Bridge\OpenBorgunBridge;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayFactory;
 

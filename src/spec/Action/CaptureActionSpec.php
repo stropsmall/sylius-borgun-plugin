@@ -28,7 +28,7 @@ final class CaptureActionSpec extends ObjectBehavior
         OrderInterface $order,
         CustomerInterface $customer,
         TokenInterface $token,
-        SetBorgun $setPayU,
+        SetBorgun $setBorgun,
         GatewayInterface $gateway
     )
     {
@@ -41,10 +41,10 @@ final class CaptureActionSpec extends ObjectBehavior
         $order->getCustomer()->willReturn($customer);
         $order->getLocaleCode()->willReturn('en_US');
         $request->getToken()->willReturn($token);
-        $setPayU->getToken()->willReturn($token);
-        $setPayU->getModel()->willReturn($model);
+        $setBorgun->getToken()->willReturn($token);
+        $setBorgun->getModel()->willReturn($model);
         $this->setGateway($gateway);
-        $this->getGateway()->execute($setPayU);
+        $this->getGateway()->execute($setBorgun);
     }
     function it_throws_exception_when_model_is_not_array_object(Capture $request)
     {

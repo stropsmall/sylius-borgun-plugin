@@ -33,9 +33,9 @@ interface OpenBorgunBridgeInterface
     public function retrieve($orderId);
     /**
      * @param $data
-     * @return null|\OpenPayU_Result
+     * @return null|\OpenBorgun_Result
      *
-     * @throws \OpenPayU_Exception
+     * @throws \OpenBorgun_Exception
      */
     public function consumeNotification($data);
 }
