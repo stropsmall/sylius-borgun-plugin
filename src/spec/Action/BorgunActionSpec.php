@@ -18,7 +18,7 @@ use Sylius\Component\Core\Model\CustomerInterface;
  * @author Mikołaj Król <mikolaj.krol@bitbag.pl>
  * @author Patryk Drapik <patryk.drapik@bitbag.pl>
  */
-final class PayUActionSpec extends ObjectBehavior
+final class BorgunActionSpec extends ObjectBehavior
 {
     function let(OpenBorgunBridgeInterface $openPayUBridge, Payum $payum)
     {

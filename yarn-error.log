@@ -1,0 +1,26 @@
+Arguments: 
+  /usr/local/Cellar/node/11.10.1/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/borec/apps/elasticsearch/elasticsearch-2.3.1/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_77/Contents/Home/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  11.10.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EEXIST: file already exists, mkdir '/Users/borec/Dev/Bundles/x/node_modules'
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
