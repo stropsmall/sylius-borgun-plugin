@@ -7,7 +7,7 @@ services:
 
   strops.payu_plugin.gateway_factory:
     class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
-    arguments: [Strops\SyliusBorgunPlugin\PayUGatewayFactory]
+    arguments: [Strops\SyliusBorgunPlugin\BorgunGatewayFactory]
     tags:
       - { name: payum.gateway_factory_builder, factory: payu }
 
